@@ -2,7 +2,7 @@ import React from 'react'
 import CardSection from "../Home/CardSection"
 import About from '../Home/about'
 import Product from '../Home/Product'
-import Contact from '../Home/contact'
+import Contact from '../Home/Contact'
 
 const HomePage = () => {
   return (
