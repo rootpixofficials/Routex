@@ -5,33 +5,33 @@ const products = [
   
   { 
     name: "Naturalicious", 
-    img: "public/images/bedroom.jpg",
+    img: "/images/bedroom.jpg",
     category: "Natural Series"
   },
   { 
     name: "Mirror Gloss", 
-    img: "public/images/kitchen1.jpg",
+    img: "/images/kitchen1.jpg",
     category: "Gloss Finish"
   },
   { 
     name: "Stone Stories", 
-    img: "public/images/kitchen2.jpg",
+    img: "/images/kitchen2.jpg",
     category: "Stone Collection"
   },
   
   { 
     name: "Solid Matt", 
-    img: "public/images/kitchen3.jpg",
+    img: "/images/kitchen3.jpg",
     category: "Matte Finish"
   },
   { 
     name: "Radical Contours", 
-    img: "public/images/bedroom1.jpg",
+    img: "/images/bedroom1.jpg",
     category: "3D Effects"
   },
   { 
     name: "Elegant Motifs", 
-    img: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    img: "/images/bedroom3.jpg",
     category: "Patterns"
   },
 

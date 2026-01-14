@@ -209,7 +209,7 @@ const Products = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative overflow-hidden" style={{ background: `linear-gradient(135deg, ${colors.primary} 0%, #1A2D5F 100%)` }}>
+      <div className="relative overflow-hidden" style={{ background: `linear-gradient(135deg, ${colors.secondary} 0%, #1A2D5F 100%)` }}>
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full mix-blend-overlay filter blur-3xl" style={{ backgroundColor: colors.secondary }}></div>

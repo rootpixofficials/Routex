@@ -123,7 +123,7 @@ const AboutUs = () => {
   return (
     <div className="w-full overflow-x-hidden bg-white min-h-screen">
       {/* ===== HERO SECTION ===== */}
-      <section ref={heroRef} className="relative h-[500px] md:h-[600px] overflow-hidden" style={{ background: `linear-gradient(135deg, ${colors.primary} 0%, #1A2D5F 100%)` }}>
+      <section ref={heroRef} className="relative h-[500px] md:h-[600px] overflow-hidden" style={{ background: `linear-gradient(135deg, ${colors.secondary} 0%, #1A2D5F 100%)` }}>
         <motion.div
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
@@ -131,11 +131,11 @@ const AboutUs = () => {
           className="absolute inset-0"
         >
           <img
-            src="/images/slide2.jpg"
+            src="/images/bedroom3.jpg"
             alt="About Us Banner"
             className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0" style={{ background: `linear-gradient(90deg, ${colors.primary}E6 0%, #1A2D5F99 100%)` }}></div>
+          <div className="absolute inset-0" style={{ background: `linear-gradient(90deg, ${colors.secondary}E6 0%, #1A2D5F99 100%)` }}></div>
         </motion.div>
 
         <motion.div
@@ -223,7 +223,7 @@ const AboutUs = () => {
               <motion.img
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.7 }}
-                src="/images/about-vision.jpg"
+                src="\images\bedroom3.jpg"
                 alt="Our Vision"
                 className="w-full h-[500px] object-cover"
               />
@@ -331,13 +331,13 @@ const AboutUs = () => {
       </section>
 
       {/* ===== OUR TEAM ===== */}
-      <section ref={teamRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      {/* <section ref={teamRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={controls.team}
-        >
-          <motion.div variants={staggerItem} className="text-center mb-16">
+        > */}
+          {/* <motion.div variants={staggerItem} className="text-center mb-16">
             <span className="text-sm font-semibold tracking-wider" style={{ color: colors.secondary }}>
               MEET OUR TEAM
             </span>
@@ -347,9 +347,9 @@ const AboutUs = () => {
             <p className="text-gray-600 max-w-3xl mx-auto mt-6 text-lg">
               Our team of experts combines decades of experience with passion for excellence.
             </p>
-          </motion.div>
+          </motion.div> */}
 
-          <div className="grid md:grid-cols-3 gap-10">
+          {/* <div className="grid md:grid-cols-3 gap-10">
             {[
               {
                 name: "Rajesh Kumar",
@@ -395,10 +395,10 @@ const AboutUs = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </div> */}
 
           {/* Team Stats */}
-          <motion.div
+          {/* <motion.div
             variants={staggerContainer}
             className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-12 border-t"
             style={{ borderColor: `${colors.primary}20` }}
@@ -421,7 +421,7 @@ const AboutUs = () => {
             ))}
           </motion.div>
         </motion.div>
-      </section>
+      </section> */}
 
       {/* ===== ACHIEVEMENTS ===== */}
       <section ref={achievementRef} className="py-20 md:py-28" style={{ background: `linear-gradient(135deg, ${colors.primary} 0%, #1A2D5F 100%)` }}>
