@@ -2,39 +2,31 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const products = [
-  { 
-    name: "Prime Textures", 
-    img: "https://images.unsplash.com/photo-1616627981933-6f7c5d1f2c0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    category: "Premium Collection"
-  },
+  
   { 
     name: "Naturalicious", 
-    img: "https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    img: "public/images/bedroom.jpg",
     category: "Natural Series"
   },
   { 
     name: "Mirror Gloss", 
-    img: "https://images.unsplash.com/photo-1600121848594-d8644e57abab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    img: "public/images/kitchen1.jpg",
     category: "Gloss Finish"
   },
   { 
     name: "Stone Stories", 
-    img: "https://images.unsplash.com/photo-1582582494700-8f3c6a7d7d9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    img: "public/images/kitchen2.jpg",
     category: "Stone Collection"
   },
-  { 
-    name: "Modern Designs", 
-    img: "https://images.unsplash.com/photo-1616627457801-2b1f908db8b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    category: "Contemporary"
-  },
+  
   { 
     name: "Solid Matt", 
-    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    img: "public/images/kitchen3.jpg",
     category: "Matte Finish"
   },
   { 
     name: "Radical Contours", 
-    img: "https://images.unsplash.com/photo-1604014237800-1c9102c219da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    img: "public/images/bedroom1.jpg",
     category: "3D Effects"
   },
   { 
@@ -42,26 +34,8 @@ const products = [
     img: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     category: "Patterns"
   },
-  { 
-    name: "Flower Mania", 
-    img: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    category: "Floral Collection"
-  },
-  { 
-    name: "Solid High Gloss", 
-    img: "https://images.unsplash.com/photo-1615529182904-14819c35db37?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    category: "Gloss Finish"
-  },
-  { 
-    name: "Solid Super High Gloss", 
-    img: "https://images.unsplash.com/photo-1616046229478-9901c5536a45?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    category: "Premium Gloss"
-  },
-  { 
-    name: "High Definition Marble", 
-    img: "https://images.unsplash.com/photo-1615874694520-474822394e73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    category: "Marble Collection"
-  },
+
+  
 ];
 
 const Product = () => {
@@ -102,17 +76,17 @@ const Product = () => {
         >
           {/* Decorative Elements */}
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4">
-            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
           </div>
           
           <div className="inline-block mb-4">
-            <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold tracking-wider border border-blue-200">
+            <span className="px-4 py-2 bg-blue-100 text-red-700 rounded-full text-sm font-semibold tracking-wider border border-red-200">
               PRODUCT PORTFOLIO
             </span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
-            Premium <span className="text-blue-600 relative">
+            Premium <span className="text-red-600 relative">
               Surface Solutions
               <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500/20"></span>
             </span>
@@ -240,7 +214,7 @@ const Product = () => {
           <motion.button
             whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(37, 99, 235, 0.2)" }}
             whileTap={{ scale: 0.95 }}
-            className="relative px-10 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+            className="relative px-10 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
           >
             <span className="flex items-center justify-center space-x-3">
               <span>Explore Full Collection</span>
@@ -268,9 +242,9 @@ const Product = () => {
         {/* Decorative Bottom Border */}
         <div className="mt-20 pt-8 border-t border-blue-100">
           <div className="flex items-center justify-center space-x-4">
-            <div className="w-8 h-px bg-gradient-to-r from-transparent to-blue-300"></div>
-            <div className="text-blue-400 text-sm font-medium">EXCELLENCE IN EVERY SURFACE</div>
-            <div className="w-8 h-px bg-gradient-to-r from-blue-300 to-transparent"></div>
+            <div className="w-8 h-px bg-gradient-to-r from-transparent to-red-300"></div>
+            <div className="text-red-400 text-sm font-medium">EXCELLENCE IN EVERY SURFACE</div>
+            <div className="w-8 h-px bg-gradient-to-r from-red-300 to-transparent"></div>
           </div>
         </div>
 

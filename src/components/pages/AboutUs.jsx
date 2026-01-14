@@ -111,10 +111,19 @@ const AboutUs = () => {
     }
   };
 
+  // Color variables based on image
+  const colors = {
+    primary: "#0B1A41", // Dark Blue from logo
+    secondary: "#8B1E3F", // Burgundy/Red from logo
+    accent: "#FFD700", // Gold for highlights
+    lightBg: "#F5F7FA",
+    darkBg: "#1A1F3C"
+  };
+
   return (
     <div className="w-full overflow-x-hidden bg-white min-h-screen">
       {/* ===== HERO SECTION ===== */}
-      <section ref={heroRef} className="relative h-[500px] md:h-[600px] bg-gradient-to-r from-blue-900 to-indigo-900 overflow-hidden">
+      <section ref={heroRef} className="relative h-[500px] md:h-[600px] overflow-hidden" style={{ background: `linear-gradient(135deg, ${colors.primary} 0%, #1A2D5F 100%)` }}>
         <motion.div
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
@@ -124,9 +133,9 @@ const AboutUs = () => {
           <img
             src="/images/slide2.jpg"
             alt="About Us Banner"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/80 to-indigo-900/60"></div>
+          <div className="absolute inset-0" style={{ background: `linear-gradient(90deg, ${colors.primary}E6 0%, #1A2D5F99 100%)` }}></div>
         </motion.div>
 
         <motion.div
@@ -139,7 +148,7 @@ const AboutUs = () => {
             variants={fadeInUp}
             className="text-5xl md:text-7xl font-bold mb-6 tracking-tight"
           >
-            About <span className="text-cyan-300">Us</span>
+            About <span className="text-[#FFD700]">Us</span>
           </motion.h1>
           <motion.p
             variants={fadeInUp}
@@ -151,11 +160,11 @@ const AboutUs = () => {
             variants={fadeInUp}
             className="flex items-center text-sm tracking-widest text-blue-200"
           >
-            <span className="hover:text-cyan-300 transition-colors cursor-pointer">HOME</span>
+            <span className="hover:text-[#FFD700] transition-colors cursor-pointer">HOME</span>
             <span className="mx-3">❯</span>
-            <span className="hover:text-cyan-300 transition-colors cursor-pointer">COMPANY</span>
+            <span className="hover:text-[#FFD700] transition-colors cursor-pointer">COMPANY</span>
             <span className="mx-3">❯</span>
-            <span className="text-cyan-300">ABOUT US</span>
+            <span className="text-[#FFD700] font-semibold">ABOUT US</span>
           </motion.div>
         </motion.div>
       </section>
@@ -171,13 +180,13 @@ const AboutUs = () => {
           {/* Left Side - Mission */}
           <div>
             <motion.div variants={staggerItem} className="mb-6">
-              <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-50 to-cyan-50 text-blue-700 rounded-full text-sm font-semibold tracking-wider border border-blue-100 shadow-sm">
+              <span className="inline-block px-4 py-2 bg-[#0B1A41] text-white rounded-full text-sm font-semibold tracking-wider shadow-md">
                 OUR MISSION
               </span>
             </motion.div>
 
             <motion.h2 variants={staggerItem} className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-              Redefining Interior <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
+              Redefining Interior <span style={{ color: colors.secondary }} className="font-bold">
                 Aesthetics
               </span>
             </motion.h2>
@@ -188,10 +197,11 @@ const AboutUs = () => {
 
             <motion.div 
               variants={fadeInLeft}
-              className="bg-gradient-to-r from-blue-50 to-white rounded-2xl p-8 border-l-4 border-cyan-500 shadow-lg"
+              className="bg-gradient-to-r from-[#F8FAFC] to-white rounded-2xl p-8 border-l-4 shadow-lg"
+              style={{ borderLeftColor: colors.secondary }}
             >
               <div className="flex items-start">
-                <div className="bg-gradient-to-r from-cyan-500 to-blue-600 p-3 rounded-lg mr-4">
+                <div className="p-3 rounded-lg mr-4" style={{ backgroundColor: colors.secondary }}>
                   <span className="text-white text-2xl">🎯</span>
                 </div>
                 <div>
@@ -209,7 +219,7 @@ const AboutUs = () => {
             variants={scaleIn}
             className="relative"
           >
-            <div className="relative overflow-hidden rounded-3xl shadow-2xl border border-blue-100">
+            <div className="relative overflow-hidden rounded-3xl shadow-2xl border border-gray-200">
               <motion.img
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.7 }}
@@ -217,26 +227,26 @@ const AboutUs = () => {
                 alt="Our Vision"
                 className="w-full h-[500px] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 via-transparent to-transparent"></div>
+              <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${colors.primary}40 0%, transparent 60%)` }}></div>
               
               {/* Floating Stats */}
               <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-700">30+</div>
+                  <div style={{ color: colors.primary }} className="text-3xl font-bold">30+</div>
                   <div className="text-sm text-gray-600">Years Experience</div>
                 </div>
               </div>
             </div>
             
             {/* Decorative Elements */}
-            <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full opacity-20 hidden lg:block"></div>
-            <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full opacity-20 hidden lg:block"></div>
+            <div className="absolute -bottom-4 -left-4 w-20 h-20 rounded-full opacity-20 hidden lg:block" style={{ backgroundColor: colors.secondary }}></div>
+            <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full opacity-20 hidden lg:block" style={{ backgroundColor: colors.primary }}></div>
           </motion.div>
         </motion.div>
       </section>
 
       {/* ===== OUR VALUES ===== */}
-      <section ref={valuesRef} className="bg-gradient-to-b from-blue-50 to-white py-20 md:py-28">
+      <section ref={valuesRef} className="py-20 md:py-28" style={{ backgroundColor: colors.lightBg }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={fadeInUp}
@@ -244,11 +254,11 @@ const AboutUs = () => {
             animate={controls.values}
             className="text-center mb-16"
           >
-            <span className="text-sm font-semibold tracking-wider text-blue-700">
+            <span className="text-sm font-semibold tracking-wider" style={{ color: colors.secondary }}>
               OUR CORE VALUES
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4">
-              Principles That <span className="text-blue-700">Guide Us</span>
+              Principles That <span style={{ color: colors.primary }}>Guide Us</span>
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto mt-6 text-lg">
               These values define who we are and how we operate, ensuring excellence in everything we do.
@@ -266,34 +276,34 @@ const AboutUs = () => {
                 icon: "✨",
                 title: "Quality Excellence",
                 description: "Uncompromising commitment to quality in every product we manufacture and deliver.",
-                color: "from-blue-500 to-cyan-500",
+                color: colors.primary,
                 points: ["Premium Materials", "Rigorous Testing", "ISO Certified"]
               },
               {
                 icon: "💡",
                 title: "Innovation",
                 description: "Continuous research and development to bring cutting-edge designs and technologies.",
-                color: "from-cyan-500 to-blue-600",
+                color: colors.secondary,
                 points: ["Latest Technology", "Trend Research", "Custom Solutions"]
               },
               {
                 icon: "🤝",
                 title: "Customer Focus",
                 description: "Building lasting relationships through exceptional service and support.",
-                color: "from-blue-600 to-indigo-600",
+                color: colors.primary,
                 points: ["24/7 Support", "Expert Consultation", "After-Sales Service"]
               }
             ].map((value, index) => (
               <motion.div
                 key={index}
                 variants={staggerItem}
-                whileHover={{ y: -10, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.15)" }}
-                className="group relative bg-white p-8 rounded-3xl transition-all border border-blue-100 shadow-lg overflow-hidden"
+                whileHover={{ y: -10, boxShadow: "0 20px 40px rgba(139, 30, 63, 0.15)" }}
+                className="group relative bg-white p-8 rounded-3xl transition-all border border-gray-200 shadow-lg overflow-hidden"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                <div className="absolute inset-0 transition-opacity duration-500" style={{ backgroundColor: value.color, opacity: 0 }}></div>
                 
                 <div className="relative z-10">
-                  <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl mb-8 mx-auto">
+                  <div className="flex items-center justify-center w-20 h-20 rounded-2xl mb-8 mx-auto" style={{ backgroundColor: `${value.color}15` }}>
                     <span className="text-4xl">{value.icon}</span>
                   </div>
                   
@@ -308,7 +318,7 @@ const AboutUs = () => {
                   <ul className="space-y-3">
                     {value.points.map((point, idx) => (
                       <li key={idx} className="flex items-center text-gray-700">
-                        <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                        <span className="w-2 h-2 rounded-full mr-3" style={{ backgroundColor: value.color }}></span>
                         {point}
                       </li>
                     ))}
@@ -328,11 +338,11 @@ const AboutUs = () => {
           animate={controls.team}
         >
           <motion.div variants={staggerItem} className="text-center mb-16">
-            <span className="text-sm font-semibold tracking-wider text-blue-700">
+            <span className="text-sm font-semibold tracking-wider" style={{ color: colors.secondary }}>
               MEET OUR TEAM
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4">
-              Dedicated <span className="text-blue-700">Professionals</span>
+              Dedicated <span style={{ color: colors.primary }}>Professionals</span>
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto mt-6 text-lg">
               Our team of experts combines decades of experience with passion for excellence.
@@ -346,21 +356,21 @@ const AboutUs = () => {
                 role: "Founder & CEO",
                 image: "/images/team-1.jpg",
                 description: "30+ years in manufacturing industry",
-                color: "border-blue-200"
+                color: colors.primary
               },
               {
                 name: "Priya Sharma",
                 role: "Design Director",
                 image: "/images/team-2.jpg",
                 description: "Award-winning interior designer",
-                color: "border-cyan-200"
+                color: colors.secondary
               },
               {
                 name: "Amit Patel",
                 role: "Technical Head",
                 image: "/images/team-3.jpg",
                 description: "Expert in material science",
-                color: "border-indigo-200"
+                color: colors.primary
               }
             ].map((member, index) => (
               <motion.div
@@ -369,18 +379,18 @@ const AboutUs = () => {
                 whileHover={{ scale: 1.03 }}
                 className="group relative"
               >
-                <div className={`relative overflow-hidden rounded-2xl border-2 ${member.color} shadow-xl`}>
+                <div className={`relative overflow-hidden rounded-2xl border-2 shadow-xl`} style={{ borderColor: `${member.color}40` }}>
                   <img
                     src={member.image}
                     alt={member.name}
                     className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0" style={{ background: `linear-gradient(to top, ${member.color}80 0%, transparent 60%)` }}></div>
                   
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white bg-gradient-to-t from-blue-900/90 to-transparent">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white" style={{ background: `linear-gradient(to top, ${member.color} 0%, transparent 100%)` }}>
                     <h3 className="text-2xl font-bold mb-1">{member.name}</h3>
-                    <p className="text-cyan-300 font-semibold mb-2">{member.role}</p>
-                    <p className="text-blue-100 text-sm">{member.description}</p>
+                    <p className="text-[#FFD700] font-semibold mb-2">{member.role}</p>
+                    <p className="text-gray-100 text-sm">{member.description}</p>
                   </div>
                 </div>
               </motion.div>
@@ -390,13 +400,14 @@ const AboutUs = () => {
           {/* Team Stats */}
           <motion.div
             variants={staggerContainer}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-12 border-t border-blue-100"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-12 border-t"
+            style={{ borderColor: `${colors.primary}20` }}
           >
             {[
-              { value: "200+", label: "Team Members", icon: "👥" },
-              { value: "15+", label: "Design Experts", icon: "🎨" },
-              { value: "10+", label: "Countries Served", icon: "🌍" },
-              { value: "98%", label: "Client Satisfaction", icon: "⭐" }
+              { value: "200+", label: "Team Members", icon: "👥", color: colors.primary },
+              { value: "15+", label: "Design Experts", icon: "🎨", color: colors.secondary },
+              { value: "10+", label: "Countries Served", icon: "🌍", color: colors.primary },
+              { value: "98%", label: "Client Satisfaction", icon: "⭐", color: colors.secondary }
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -404,7 +415,7 @@ const AboutUs = () => {
                 className="text-center"
               >
                 <div className="text-5xl mb-4">{stat.icon}</div>
-                <div className="text-3xl md:text-4xl font-bold text-blue-700 mb-2">{stat.value}</div>
+                <div className="text-3xl md:text-4xl font-bold mb-2" style={{ color: stat.color }}>{stat.value}</div>
                 <div className="text-gray-600">{stat.label}</div>
               </motion.div>
             ))}
@@ -413,7 +424,7 @@ const AboutUs = () => {
       </section>
 
       {/* ===== ACHIEVEMENTS ===== */}
-      <section ref={achievementRef} className="bg-gradient-to-br from-blue-900 to-indigo-900 py-20 md:py-28">
+      <section ref={achievementRef} className="py-20 md:py-28" style={{ background: `linear-gradient(135deg, ${colors.primary} 0%, #1A2D5F 100%)` }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={fadeInUp}
@@ -421,11 +432,11 @@ const AboutUs = () => {
             animate={controls.achievement}
             className="text-center mb-16"
           >
-            <span className="text-sm font-semibold tracking-wider text-cyan-300">
+            <span className="text-sm font-semibold tracking-wider text-[#FFD700]">
               OUR ACHIEVEMENTS
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-white mt-4">
-              Milestones of <span className="text-cyan-300">Excellence</span>
+              Milestones of <span className="text-[#FFD700]">Excellence</span>
             </h2>
           </motion.div>
 
@@ -470,7 +481,7 @@ const AboutUs = () => {
                 <div className="text-5xl mb-6 opacity-80 group-hover:opacity-100 transition-opacity">
                   {achievement.icon}
                 </div>
-                <div className="text-3xl font-bold text-cyan-300 mb-2">{achievement.year}</div>
+                <div className="text-3xl font-bold text-[#FFD700] mb-2">{achievement.year}</div>
                 <h3 className="text-xl font-bold text-white mb-3">{achievement.title}</h3>
                 <p className="text-blue-100 text-sm">{achievement.description}</p>
               </motion.div>
@@ -485,7 +496,12 @@ const AboutUs = () => {
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">
               Ready to Transform Your Space?
             </h3>
-            <button className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-10 py-4 rounded-full font-semibold text-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:-translate-y-1 shadow-xl hover:shadow-2xl">
+            <button 
+              className="text-white px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:-translate-y-1 shadow-xl hover:shadow-2xl"
+              style={{ backgroundColor: colors.secondary }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = '#6A1630'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = colors.secondary}
+            >
               Contact Us Today
             </button>
           </motion.div>
@@ -499,6 +515,7 @@ const AboutUs = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
           className="text-gray-500 italic"
+          style={{ color: colors.primary }}
         >
           "Creating beautiful spaces that inspire and endure"
         </motion.p>

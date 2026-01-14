@@ -41,17 +41,19 @@ const Navbar = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`sticky top-0 z-50 bg-white transition-all ${
-          scrolled ? "shadow-lg" : "shadow-md"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled 
+            ? "bg-white shadow-lg" 
+            : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
           
           {/* Logo */}
           <img
-            src="/images/WhatsApp_Image_2025-12-12_at_20.50.58_fd8c0ffa-removebg-preview.png"
+            src="/images/Logo.png"
             alt="MOZAIC Logo"
-            className="h-12 cursor-pointer h-25"
+            className="h-22 cursor-pointer"
             onClick={() => navigate("/")}
           />
 
@@ -64,8 +66,10 @@ const Navbar = () => {
                   className={`px-4 py-3 text-sm font-semibold uppercase rounded-md transition
                     ${
                       isActive(item.path)
-                        ? "text-blue-600 font-bold bg-blue-50"
-                        : "text-gray-800 hover:text-blue-600 hover:bg-blue-50"
+                        ? "text-red-600 font-bold bg-blue-50"
+                        : scrolled 
+                          ? "text-gray-800 hover:text-red-600 hover:bg-blue-50"
+                          : "text-white hover:text-red-300 hover:bg-white/10"
                     }`}
                 >
                   {item.label}
@@ -73,7 +77,7 @@ const Navbar = () => {
                   {isActive(item.path) && (
                     <motion.span
                       layoutId="activeDot"
-                      className="absolute top-2 right-3 w-1.5 h-1.5 bg-blue-600 rounded-full"
+                      className="absolute top-2 right-3 w-1.5 h-1.5 bg-red-600 rounded-full"
                     />
                   )}
                 </button>
@@ -85,6 +89,9 @@ const Navbar = () => {
           <button
             className="lg:hidden text-2xl"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            style={{ 
+              color: scrolled ? '#1f2937' : 'white' // gray-800 when scrolled, white when transparent
+            }}
           >
             ☰
           </button>
@@ -98,7 +105,7 @@ const Navbar = () => {
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            className="fixed top-0 right-0 w-80 h-full bg-white z-50 lg:hidden"
+            className="fixed top-0 right-0 w-80 h-full bg-white z-50 lg:hidden shadow-xl"
           >
             <div className="p-6 space-y-2">
               {navItems.map((item, index) => (

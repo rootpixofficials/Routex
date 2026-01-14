@@ -6,6 +6,17 @@ const Products = () => {
   const [viewMode, setViewMode] = useState('grid');
   const [showFilter, setShowFilter] = useState(false);
 
+  // Brand colors from image
+  const colors = {
+    primary: "#0B1A41",    // Dark Blue
+    secondary: "#8B1E3F",  // Burgundy/Red
+    accent: "#FFD700",     // Gold/Yellow
+    lightBg: "#F8FAFC",    // Light background
+    grayBg: "#F1F5F9",     // Gray background
+    textDark: "#1E293B",   // Dark text
+    textLight: "#64748B",  // Light text
+  };
+
   const categories = [
     { id: 'all', name: 'All Products', count: 8, icon: '📦' },
     { id: 'wood-finish', name: 'Wood Finish', count: 2, icon: '🌳' },
@@ -198,23 +209,28 @@ const Products = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
+      <div className="relative overflow-hidden" style={{ background: `linear-gradient(135deg, ${colors.primary} 0%, #1A2D5F 100%)` }}>
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-overlay filter blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500 rounded-full mix-blend-overlay filter blur-3xl"></div>
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full mix-blend-overlay filter blur-3xl" style={{ backgroundColor: colors.secondary }}></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full mix-blend-overlay filter blur-3xl" style={{ backgroundColor: colors.accent }}></div>
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-              Premium <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Laminates</span>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-white">
+              Premium <span style={{ color: colors.accent }}>Laminates</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
               Discover our extensive collection of high-quality PVC laminates. Transform your spaces with elegance and durability.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-blue-500/30 transition-all">
+              <button 
+                className="px-8 py-4 text-white rounded-xl font-bold text-lg hover:shadow-2xl transition-all bg-red-600"
+                style={{ backgroundColor: colors.secondary }}
+                
+              
+              >
                 Request Catalog
               </button>
               <button className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-xl font-bold text-lg hover:bg-white/20 transition-all">
@@ -230,23 +246,25 @@ const Products = () => {
         {/* Page Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">Our Collection</h2>
+            <h2 className="text-3xl font-bold" style={{ color: colors.primary }}>Our Collection</h2>
             <p className="text-gray-600 mt-2">Premium PVC laminates for every interior need</p>
           </div>
           
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
             <button 
               onClick={() => setShowFilter(!showFilter)}
-              className="flex items-center px-4 py-2.5 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+              className="flex items-center px-4 py-2.5 rounded-lg hover:bg-gray-200 transition-colors"
+              style={{ backgroundColor: colors.lightBg, color: colors.primary }}
             >
               <span className="mr-2">⚙️</span>
               Filters
             </button>
             
-            <div className="flex bg-gray-100 rounded-lg p-1">
+            <div className="flex rounded-lg p-1" style={{ backgroundColor: colors.lightBg }}>
               <button
                 onClick={() => setViewMode('grid')}
-                className={`p-2.5 rounded-md transition-all ${viewMode === 'grid' ? 'bg-white text-blue-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
+                className={`p-2.5 rounded-md transition-all ${viewMode === 'grid' ? 'bg-white shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
+                style={viewMode === 'grid' ? { color: colors.secondary } : {}}
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
@@ -254,7 +272,8 @@ const Products = () => {
               </button>
               <button
                 onClick={() => setViewMode('list')}
-                className={`p-2.5 rounded-md transition-all ${viewMode === 'list' ? 'bg-white text-blue-600 shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
+                className={`p-2.5 rounded-md transition-all ${viewMode === 'list' ? 'bg-white shadow-sm' : 'text-gray-600 hover:text-gray-900'}`}
+                style={viewMode === 'list' ? { color: colors.secondary } : {}}
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -268,7 +287,7 @@ const Products = () => {
           {/* Sidebar Filters */}
           <div className={`lg:w-1/4 ${showFilter ? 'block' : 'hidden lg:block'}`}>
             <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 sticky top-24">
-              <h3 className="text-lg font-bold text-gray-900 mb-6">Categories</h3>
+              <h3 className="text-lg font-bold mb-6" style={{ color: colors.primary }}>Categories</h3>
               
               <div className="space-y-2">
                 {categories.map(category => (
@@ -277,16 +296,22 @@ const Products = () => {
                     onClick={() => setSelectedCategory(category.id)}
                     className={`w-full flex items-center justify-between p-4 rounded-xl transition-all ${
                       selectedCategory === category.id
-                        ? 'bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200 text-blue-700'
+                        ? 'border text-white'
                         : 'hover:bg-gray-50 text-gray-700'
                     }`}
+                    style={selectedCategory === category.id ? 
+                      { 
+                        backgroundColor: colors.secondary,
+                        borderColor: colors.secondary
+                      } : {}
+                    }
                   >
                     <div className="flex items-center">
                       <span className="text-xl mr-3">{category.icon}</span>
                       <span className="font-medium">{category.name}</span>
                     </div>
                     <span className={`px-2.5 py-1 rounded-full text-sm ${
-                      selectedCategory === category.id ? 'bg-blue-100 text-blue-600' : 'bg-gray-100 text-gray-600'
+                      selectedCategory === category.id ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-600'
                     }`}>
                       {category.count}
                     </span>
@@ -295,13 +320,13 @@ const Products = () => {
               </div>
 
               <div className="mt-8 pt-8 border-t border-gray-200">
-                <h4 className="text-sm font-semibold text-gray-900 mb-4">Filter by</h4>
+                <h4 className="text-sm font-semibold mb-4" style={{ color: colors.primary }}>Filter by</h4>
                 
                 <div className="space-y-4">
                   <div>
                     <label className="block text-sm text-gray-600 mb-2">Price Range</label>
                     <div className="h-2 bg-gray-200 rounded-full">
-                      <div className="h-full w-3/4 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"></div>
+                      <div className="h-full w-3/4 rounded-full" style={{ backgroundColor: colors.secondary }}></div>
                     </div>
                     <div className="flex justify-between text-xs text-gray-500 mt-2">
                       <span>₹100</span>
@@ -314,7 +339,9 @@ const Products = () => {
                     <div className="space-y-2">
                       {['1.25mm', '3.25mm', 'Both'].map(thickness => (
                         <label key={thickness} className="flex items-center">
-                          <input type="checkbox" className="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                          <input type="checkbox" className="rounded border-gray-300 focus:ring-2" 
+                            style={{ '--tw-ring-color': colors.secondary }}
+                          />
                           <span className="ml-2 text-sm text-gray-700">{thickness}</span>
                         </label>
                       ))}
@@ -325,7 +352,11 @@ const Products = () => {
                     <label className="block text-sm text-gray-600 mb-2">Finish</label>
                     <div className="flex flex-wrap gap-2">
                       {['Matte', 'Glossy', 'Satin', 'Semi-Gloss'].map(finish => (
-                        <span key={finish} className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm">
+                        <span 
+                          key={finish} 
+                          className="px-3 py-1.5 rounded-lg text-sm cursor-pointer hover:opacity-90 transition-opacity"
+                          style={{ backgroundColor: colors.lightBg, color: colors.primary }}
+                        >
                           {finish}
                         </span>
                       ))}
@@ -341,29 +372,39 @@ const Products = () => {
             {/* Featured Products */}
             {filteredProducts.filter(p => p.featured).length > 0 && (
               <div className="mb-10">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Featured Products</h3>
+                <h3 className="text-xl font-bold mb-6" style={{ color: colors.primary }}>Featured Products</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   {filteredProducts.filter(p => p.featured).map(product => (
                     <div 
                       key={product.id}
                       onClick={() => handleProductClick(product)}
-                      className="group relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden cursor-pointer"
+                      className="group relative rounded-2xl overflow-hidden cursor-pointer shadow-lg"
+                      style={{ background: `linear-gradient(135deg, ${colors.primary} 0%, #1A2D5F 100%)` }}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-400/20"></div>
+                      <div className="absolute inset-0 opacity-20" style={{ backgroundColor: colors.accent }}></div>
                       <div className="relative p-8">
                         <div className="flex flex-col md:flex-row items-center">
                           <div className="md:w-1/3 mb-6 md:mb-0">
-                            <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl flex items-center justify-center">
-                              <span className="text-5xl">✨</span>
+                            <div className="w-32 h-32 rounded-2xl flex items-center justify-center"
+                              style={{ backgroundColor: colors.accent + '30' }}
+                            >
+                              <span className="text-5xl">{product.category === 'wood-finish' ? '🌳' : 
+                                                       product.category === 'stone-finish' ? '🗿' : 
+                                                       product.category === 'solid-colors' ? '🎨' : 
+                                                       product.category === 'patterns' ? '🔷' : '✨'}</span>
                             </div>
                           </div>
                           <div className="md:w-2/3 md:pl-8">
                             <div className="flex items-center gap-2 mb-3">
-                              <span className="px-3 py-1 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full text-xs font-bold">
+                              <span className="px-3 py-1 text-white rounded-full text-xs font-bold"
+                                style={{ backgroundColor: colors.accent }}
+                              >
                                 FEATURED
                               </span>
                               {product.popular && (
-                                <span className="px-3 py-1 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full text-xs font-bold">
+                                <span className="px-3 py-1 text-white rounded-full text-xs font-bold"
+                                  style={{ backgroundColor: colors.secondary }}
+                                >
                                   POPULAR
                                 </span>
                               )}
@@ -372,7 +413,9 @@ const Products = () => {
                             <p className="text-gray-300 mb-4">{product.description}</p>
                             <div className="flex items-center justify-between">
                               <div className="text-2xl font-bold text-white">{product.price}</div>
-                              <button className="px-6 py-2.5 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                              <button className="px-6 py-2.5 text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                                style={{ backgroundColor: colors.accent }}
+                              >
                                 View Details
                               </button>
                             </div>
@@ -388,7 +431,7 @@ const Products = () => {
             {/* All Products */}
             <div>
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-gray-900">
+                <h3 className="text-xl font-bold" style={{ color: colors.primary }}>
                   All Products <span className="text-gray-400">({filteredProducts.length})</span>
                 </h3>
                 <select className="px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-700">
@@ -405,10 +448,14 @@ const Products = () => {
                     <div 
                       key={product.id}
                       onClick={() => handleProductClick(product)}
-                      className="group bg-white rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden"
+                      className="group bg-white rounded-2xl border border-gray-200 hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden"
+                      style={{ 
+                        borderColor: selectedCategory === product.category ? colors.secondary + '40' : '#E5E7EB',
+                        borderWidth: selectedCategory === product.category ? '2px' : '1px'
+                      }}
                     >
                       {/* Product Image */}
-                      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+                      <div className="relative h-48 overflow-hidden" style={{ backgroundColor: colors.lightBg }}>
                         <div className="absolute inset-0 flex items-center justify-center">
                           <div className="text-6xl opacity-80">
                             {product.category === 'wood-finish' && '🌳'}
@@ -422,12 +469,16 @@ const Products = () => {
                         {/* Badges */}
                         <div className="absolute top-4 left-4 flex flex-col gap-2">
                           {product.popular && (
-                            <span className="px-3 py-1 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full text-xs font-bold">
+                            <span className="px-3 py-1 text-white rounded-full text-xs font-bold"
+                              style={{ backgroundColor: colors.secondary }}
+                            >
                               POPULAR
                             </span>
                           )}
                           {product.discount && (
-                            <span className="px-3 py-1 bg-gradient-to-r from-red-500 to-pink-500 text-white rounded-full text-xs font-bold">
+                            <span className="px-3 py-1 text-white rounded-full text-xs font-bold"
+                              style={{ backgroundColor: '#DC2626' }}
+                            >
                               SALE
                             </span>
                           )}
@@ -435,7 +486,9 @@ const Products = () => {
                         
                         {/* Quick Actions */}
                         <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <button className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl">
+                          <button className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl"
+                            style={{ color: colors.secondary }}
+                          >
                             ❤️
                           </button>
                         </div>
@@ -445,28 +498,32 @@ const Products = () => {
                       <div className="p-6">
                         <div className="mb-4">
                           <div className="flex items-center justify-between mb-2">
-                            <span className="text-sm text-blue-600 font-medium">
+                            <span className="text-sm font-medium"
+                              style={{ color: colors.secondary }}
+                            >
                               {categories.find(c => c.id === product.category)?.name}
                             </span>
                             <div className="flex items-center">
-                              <span className="text-amber-500">⭐</span>
+                              <span style={{ color: colors.accent }}>⭐</span>
                               <span className="ml-1 text-sm font-medium text-gray-700">{product.rating}</span>
                               <span className="mx-1 text-gray-300">•</span>
                               <span className="text-sm text-gray-500">{product.reviews} reviews</span>
                             </div>
                           </div>
-                          <h3 className="text-lg font-bold text-gray-900 mb-2">{product.name}</h3>
+                          <h3 className="text-lg font-bold mb-2" style={{ color: colors.primary }}>{product.name}</h3>
                           <p className="text-gray-600 text-sm line-clamp-2">{product.description}</p>
                         </div>
 
                         {/* Price & Specifications */}
                         <div className="mb-6">
                           <div className="flex items-center mb-3">
-                            <span className="text-2xl font-bold text-gray-900">{product.price}</span>
+                            <span className="text-2xl font-bold" style={{ color: colors.primary }}>{product.price}</span>
                             {product.discount && (
                               <>
                                 <span className="ml-2 text-sm text-gray-500 line-through">{product.discount}</span>
-                                <span className="ml-2 px-2 py-1 bg-red-100 text-red-600 rounded text-xs font-bold">
+                                <span className="ml-2 px-2 py-1 rounded text-xs font-bold"
+                                  style={{ backgroundColor: colors.secondary + '20', color: colors.secondary }}
+                                >
                                   SAVE 14%
                                 </span>
                               </>
@@ -482,7 +539,11 @@ const Products = () => {
                         </div>
 
                         {/* Action Button */}
-                        <button className="w-full py-3 bg-gradient-to-r from-gray-900 to-gray-800 text-white rounded-xl font-semibold hover:shadow-lg transition-all group-hover:from-blue-600 group-hover:to-cyan-500">
+                        <button className="w-full py-3 text-white rounded-xl font-semibold hover:shadow-lg transition-all group-hover:scale-[1.02]"
+                          style={{ backgroundColor: colors.primary }}
+                          onMouseEnter={(e) => e.target.style.backgroundColor = colors.secondary}
+                          onMouseLeave={(e) => e.target.style.backgroundColor = colors.primary}
+                        >
                           View Details
                         </button>
                       </div>
@@ -496,12 +557,18 @@ const Products = () => {
                     <div 
                       key={product.id}
                       onClick={() => handleProductClick(product)}
-                      className="group bg-white rounded-2xl border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                      className="group bg-white rounded-2xl border border-gray-200 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                      style={{ 
+                        borderColor: selectedCategory === product.category ? colors.secondary + '40' : '#E5E7EB',
+                        borderWidth: selectedCategory === product.category ? '2px' : '1px'
+                      }}
                     >
                       <div className="flex flex-col md:flex-row">
                         {/* Image */}
                         <div className="md:w-1/4">
-                          <div className="h-48 md:h-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+                          <div className="h-48 md:h-full flex items-center justify-center"
+                            style={{ backgroundColor: colors.lightBg }}
+                          >
                             <div className="text-5xl">
                               {product.category === 'wood-finish' && '🌳'}
                               {product.category === 'stone-finish' && '🗿'}
@@ -517,54 +584,59 @@ const Products = () => {
                           <div className="flex flex-col md:flex-row justify-between">
                             <div className="mb-4 md:mb-0">
                               <div className="flex items-center gap-3 mb-3">
-                                <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                                <span className="px-3 py-1 rounded-full text-sm font-medium"
+                                  style={{ backgroundColor: colors.primary + '15', color: colors.primary }}
+                                >
                                   {categories.find(c => c.id === product.category)?.name}
                                 </span>
                                 {product.popular && (
-                                  <span className="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-medium">
+                                  <span className="px-3 py-1 rounded-full text-sm font-medium"
+                                    style={{ backgroundColor: colors.secondary + '15', color: colors.secondary }}
+                                  >
                                     Popular
                                   </span>
                                 )}
                               </div>
-                              <h3 className="text-xl font-bold text-gray-900 mb-2">{product.name}</h3>
+                              <h3 className="text-xl font-bold mb-2" style={{ color: colors.primary }}>{product.name}</h3>
                               <p className="text-gray-600 mb-4">{product.description}</p>
                             </div>
                             <div className="text-right">
-                              <div className="text-2xl font-bold text-gray-900 mb-2">{product.price}</div>
+                              <div className="text-2xl font-bold mb-2" style={{ color: colors.primary }}>{product.price}</div>
                               <div className="flex items-center justify-end mb-2">
-                                <span className="text-amber-500">⭐</span>
+                                <span style={{ color: colors.accent }}>⭐</span>
                                 <span className="ml-1 font-medium">{product.rating}</span>
                                 <span className="ml-2 text-gray-500">({product.reviews})</span>
                               </div>
-                              <div className="text-sm text-green-600 font-medium">✓ In Stock</div>
+                              <div className="text-sm font-medium" style={{ color: '#059669' }}>✓ In Stock</div>
                             </div>
                           </div>
 
                           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-                            <div className="text-center p-3 bg-gray-50 rounded-xl">
-                              <div className="text-sm text-gray-500 mb-1">Thickness</div>
-                              <div className="font-semibold">{product.thickness.join(', ')}</div>
-                            </div>
-                            <div className="text-center p-3 bg-gray-50 rounded-xl">
-                              <div className="text-sm text-gray-500 mb-1">Size</div>
-                              <div className="font-semibold">{product.size}</div>
-                            </div>
-                            <div className="text-center p-3 bg-gray-50 rounded-xl">
-                              <div className="text-sm text-gray-500 mb-1">Finish</div>
-                              <div className="font-semibold">{product.finish}</div>
-                            </div>
-                            <div className="text-center p-3 bg-gray-50 rounded-xl">
-                              <div className="text-sm text-gray-500 mb-1">Colors</div>
-                              <div className="flex justify-center">
-                                {product.colors.map((color, idx) => (
-                                  <div
-                                    key={idx}
-                                    className="w-4 h-4 rounded-full border border-gray-300 -ml-1 first:ml-0"
-                                    style={{ backgroundColor: color }}
-                                  />
-                                ))}
+                            {[
+                              { label: 'Thickness', value: product.thickness.join(', ') },
+                              { label: 'Size', value: product.size },
+                              { label: 'Finish', value: product.finish },
+                              { label: 'Colors', value: '' }
+                            ].map((spec, idx) => (
+                              <div key={idx} className="text-center p-3 rounded-xl"
+                                style={{ backgroundColor: colors.lightBg }}
+                              >
+                                <div className="text-sm mb-1" style={{ color: colors.primary }}>{spec.label}</div>
+                                {spec.label === 'Colors' ? (
+                                  <div className="flex justify-center">
+                                    {product.colors.map((color, idx) => (
+                                      <div
+                                        key={idx}
+                                        className="w-4 h-4 rounded-full border border-gray-300 -ml-1 first:ml-0"
+                                        style={{ backgroundColor: color }}
+                                      />
+                                    ))}
+                                  </div>
+                                ) : (
+                                  <div className="font-semibold" style={{ color: colors.primary }}>{spec.value}</div>
+                                )}
                               </div>
-                            </div>
+                            ))}
                           </div>
                         </div>
                       </div>
@@ -580,14 +652,15 @@ const Products = () => {
         {filteredProducts.length === 0 && (
           <div className="text-center py-20">
             <div className="text-8xl mb-6">🔍</div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-3">No products found</h3>
+            <h3 className="text-2xl font-bold mb-3" style={{ color: colors.primary }}>No products found</h3>
             <p className="text-gray-600 mb-8">Try selecting a different category or adjusting your filters</p>
             <button 
               onClick={() => {
                 setSelectedCategory('all');
                 setShowFilter(false);
               }}
-              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-xl font-bold text-lg hover:shadow-xl"
+              className="px-8 py-4 text-white rounded-xl font-bold text-lg hover:shadow-xl"
+              style={{ backgroundColor: colors.secondary }}
             >
               View All Products
             </button>
@@ -595,218 +668,11 @@ const Products = () => {
         )}
       </div>
 
-      {/* Product Details Modal */}
-      {selectedProduct && (
-        <div className="fixed inset-0 z-50 overflow-y-auto">
-          {/* Backdrop */}
-          <div 
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
-            onClick={closeProductDetails}
-          />
-          
-          {/* Modal */}
-          <div className="relative min-h-screen flex items-center justify-center p-4">
-            <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden">
-              
-              {/* Header */}
-              <div className="sticky top-0 z-10 bg-white border-b border-gray-200">
-                <div className="flex items-center justify-between p-6">
-                  <div>
-                    <h2 className="text-2xl font-bold text-gray-900">{selectedProduct.name}</h2>
-                    <p className="text-blue-600">
-                      {categories.find(c => c.id === selectedProduct.category)?.name}
-                    </p>
-                  </div>
-                  <button
-                    onClick={closeProductDetails}
-                    className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors"
-                  >
-                    <span className="text-2xl">✕</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="overflow-y-auto max-h-[calc(90vh-80px)]">
-                <div className="p-6">
-                  {/* Hero Section */}
-                  <div className="flex flex-col lg:flex-row gap-8 mb-8">
-                    <div className="lg:w-2/5">
-                      <div className="h-64 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center">
-                        <div className="text-8xl">
-                          {selectedProduct.category === 'wood-finish' && '🌳'}
-                          {selectedProduct.category === 'stone-finish' && '🗿'}
-                          {selectedProduct.category === 'solid-colors' && '🎨'}
-                          {selectedProduct.category === 'patterns' && '🔷'}
-                          {selectedProduct.category === 'metallic' && '✨'}
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="lg:w-3/5">
-                      <div className="flex items-center gap-3 mb-4">
-                        {selectedProduct.tags.map((tag, idx) => (
-                          <span key={idx} className="px-3 py-1.5 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      
-                      <div className="mb-6">
-                        <div className="flex items-center mb-4">
-                          <div className="text-3xl font-bold text-gray-900">{selectedProduct.price}</div>
-                          {selectedProduct.discount && (
-                            <div className="ml-4">
-                              <div className="text-lg text-gray-500 line-through">{selectedProduct.discount}</div>
-                              <div className="text-sm text-red-600 font-medium">Special Offer</div>
-                            </div>
-                          )}
-                        </div>
-                        
-                        <div className="flex items-center gap-4 text-sm text-gray-600 mb-6">
-                          <div className="flex items-center">
-                            <span className="text-amber-500 mr-1">⭐</span>
-                            <span className="font-medium">{selectedProduct.rating}</span>
-                            <span className="mx-1">•</span>
-                            <span>{selectedProduct.reviews} reviews</span>
-                          </div>
-                          <div className="flex items-center">
-                            <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                            {selectedProduct.stock}
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="grid grid-cols-2 gap-4 mb-8">
-                        <button className="py-3.5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-xl font-semibold hover:shadow-lg">
-                          Request Sample
-                        </button>
-                        <button className="py-3.5 border-2 border-blue-600 text-blue-600 rounded-xl font-semibold hover:bg-blue-50">
-                          Get Quote
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Tabs */}
-                  <div className="mb-8">
-                    <div className="border-b border-gray-200">
-                      <div className="flex space-x-8">
-                        {['Description', 'Specifications', 'Applications', 'Colors'].map(tab => (
-                          <button key={tab} className="pb-4 font-semibold text-gray-900 border-b-2 border-transparent hover:text-blue-600">
-                            {tab}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <div className="mb-8">
-                    <p className="text-gray-700 leading-relaxed">{selectedProduct.longDescription}</p>
-                  </div>
-
-                  {/* Specifications Grid */}
-                  <div className="grid md:grid-cols-2 gap-8 mb-8">
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-4">Product Specifications</h3>
-                      <div className="space-y-3">
-                        {[
-                          { label: 'Thickness', value: selectedProduct.thickness.join(', ') },
-                          { label: 'Standard Size', value: selectedProduct.size },
-                          { label: 'Finish Type', value: selectedProduct.finish },
-                          { label: 'Edge Type', value: 'Square Edge' },
-                          { label: 'Packaging', value: 'Carton Box' },
-                          { label: 'Minimum Order', value: '10 Sheets' }
-                        ].map((spec, idx) => (
-                          <div key={idx} className="flex justify-between py-3 border-b border-gray-100">
-                            <span className="text-gray-600">{spec.label}</span>
-                            <span className="font-semibold">{spec.value}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-4">Key Features</h3>
-                      <div className="grid grid-cols-2 gap-3">
-                        {[
-                          'Water Resistant',
-                          'Scratch Proof',
-                          'Stain Resistant',
-                          'Easy to Clean',
-                          'Fire Retardant',
-                          'Eco Friendly',
-                          'UV Resistant',
-                          'Termite Proof'
-                        ].map((feature, idx) => (
-                          <div key={idx} className="flex items-center p-3 bg-gray-50 rounded-xl">
-                            <div className="w-6 h-6 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
-                              ✓
-                            </div>
-                            <span className="text-sm font-medium">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Color Options */}
-                  <div className="mb-8">
-                    <h3 className="text-lg font-bold text-gray-900 mb-4">Available Colors</h3>
-                    <div className="flex flex-wrap gap-4">
-                      {selectedProduct.colors.map((color, idx) => (
-                        <div key={idx} className="text-center">
-                          <div 
-                            className="w-20 h-20 rounded-2xl border-4 border-white shadow-lg mb-2"
-                            style={{ backgroundColor: color }}
-                          />
-                          <span className="text-sm text-gray-600">Color {idx + 1}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Applications */}
-                  <div className="mb-8">
-                    <h3 className="text-lg font-bold text-gray-900 mb-4">Recommended Applications</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                      {selectedProduct.applications.map((app, idx) => (
-                        <div key={idx} className="flex items-center p-3 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl">
-                          <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center mr-3">
-                            ✓
-                          </div>
-                          <span className="font-medium">{app}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Final CTA */}
-                  <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 text-center">
-                    <h3 className="text-2xl font-bold text-white mb-4">Ready to Transform Your Space?</h3>
-                    <p className="text-gray-300 mb-6">Get professional consultation and samples for your project</p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                      <button className="px-8 py-4 bg-white text-gray-900 rounded-xl font-bold hover:bg-gray-100">
-                        Download Full Catalog
-                      </button>
-                      <button className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl font-bold hover:shadow-lg">
-                        Contact Sales Team
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Features Section */}
-      <div className="bg-gradient-to-b from-white to-gray-50 py-20">
+      <div className="py-20" style={{ backgroundColor: colors.lightBg }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose Mozaic?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: colors.primary }}>Why Choose Mozaic?</h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               Experience the perfect blend of quality, innovation, and design excellence
             </p>
@@ -820,10 +686,12 @@ const Products = () => {
               { icon: '🚚', title: 'Nationwide Delivery', desc: 'Fast and reliable delivery across India' }
             ].map((feature, idx) => (
               <div key={idx} className="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6"
+                  style={{ backgroundColor: colors.primary + '10' }}
+                >
                   <span className="text-2xl">{feature.icon}</span>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-3">{feature.title}</h3>
+                <h3 className="text-lg font-bold mb-3" style={{ color: colors.primary }}>{feature.title}</h3>
                 <p className="text-gray-600">{feature.desc}</p>
               </div>
             ))}
@@ -832,15 +700,17 @@ const Products = () => {
       </div>
 
       {/* Contact CTA */}
-      <div className="bg-gradient-to-r from-blue-600 to-cyan-500 py-16">
+      <div className="py-16" style={{ backgroundColor: colors.secondary }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold text-white mb-6">Need Help Choosing?</h2>
-            <p className="text-blue-100 text-lg mb-8">
+            <p className="text-white/80 text-lg mb-8">
               Our laminate experts are ready to help you select the perfect product for your project
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-white text-blue-600 rounded-xl font-bold hover:bg-gray-100">
+              <button className="px-8 py-4 bg-white rounded-xl font-bold hover:bg-gray-100 transition-colors"
+                style={{ color: colors.secondary }}
+              >
                 Schedule Consultation
               </button>
               <button className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-xl font-bold hover:bg-white/10">

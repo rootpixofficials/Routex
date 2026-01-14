@@ -35,7 +35,7 @@ const Contact = () => {
     <div className="w-full bg-white">
 
       {/* ================= PREMIUM CTA BAR ================= */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-blue-700 via-blue-600 to-blue-800 py-12">
+      <section className="relative overflow-hidden bg-gradient-to-r from-red-700 via-redblue-600 to-red-800 py-12">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-32 -translate-y-32"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-48 translate-y-48"></div>
@@ -91,11 +91,11 @@ const Contact = () => {
             {/* Decorative Header */}
             <div className="inline-block mb-6">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-px bg-gradient-to-r from-transparent to-blue-400"></div>
-                <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold tracking-wider">
+                <div className="w-8 h-px bg-gradient-to-r from-transparent to-red-400"></div>
+                <span className="px-4 py-2 bg-red-100 text-red-700 rounded-full text-sm font-semibold tracking-wider">
                   STAY CONNECTED
                 </span>
-                <div className="w-8 h-px bg-gradient-to-r from-blue-400 to-transparent"></div>
+                <div className="w-8 h-px bg-gradient-to-r from-red-400 to-transparent"></div>
               </div>
             </div>
             
@@ -129,7 +129,7 @@ const Contact = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   type="submit"
-                  className="px-10 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-xl"
+                  className="px-10 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all shadow-lg hover:shadow-xl"
                 >
                   <span className="flex items-center justify-center space-x-3">
                     <span>Subscribe</span>

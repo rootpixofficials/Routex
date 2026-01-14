@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [
-    "https://images.unsplash.com/photo-1615873968403-89e068629265?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+    "/images/slide1.jpg"
 ,
     "/images/slide2.jpg",
     "/images/slide3.jpg",
@@ -66,7 +66,7 @@ const Home = () => {
     <div className="min-h-screen">
       
       {/* Hero Section */}
-      <section className="relative h-[90vh] overflow-hidden">
+      <section className="relative h-[100vh] overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
@@ -93,11 +93,11 @@ const Home = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="max-w-2xl">
               <div className="mb-8">
-                <span className="inline-block bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-medium mb-4">
+                <span className="inline-block bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-medium mt-5">
                   PREMIUM PVC LAMINATES
                 </span>
                 <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                  Crafting Beautiful Spaces with <span className="text-blue-300">Premium Quality</span>
+                  Crafting Beautiful Spaces with <span className="text-red-300">Premium Quality</span>
                 </h1>
                 <p className="text-lg text-gray-200 mb-10 max-w-xl">
                   Transform your interiors with our high-quality PVC laminates. 30+ years of excellence in manufacturing durable and elegant surfaces.
@@ -105,7 +105,7 @@ const Home = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:shadow-xl">
+                <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:shadow-xl">
                   Explore Products
                 </button>
                 <button className="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-lg font-semibold text-lg border border-white/30 transition-all">

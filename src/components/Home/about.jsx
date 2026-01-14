@@ -110,7 +110,7 @@ const About = () => {
   return (
     <div className="w-full overflow-x-hidden bg-white min-h-screen">
       {/* ===== HERO SECTION ===== */}
-      <section ref={heroRef} className="relative h-[480px] md:h-[520px] bg-blue-900 overflow-hidden">
+      <section ref={heroRef} className="relative h-[480px] md:h-[520px] bg-red-900 overflow-hidden">
         <motion.div
                   initial={{ scale: 1.1 }}
                   animate={{ scale: 1 }}
@@ -118,7 +118,7 @@ const About = () => {
                   className="absolute inset-0"
                 >
                   
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-blue-900/60"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-900/80 to-red-900/60"></div>
                 </motion.div>
 
         <motion.div
@@ -131,17 +131,17 @@ const About = () => {
             variants={fadeInUp}
             className="text-5xl md:text-6xl font-bold mb-4"
           >
-            Our <span className="text-blue-300">Story</span>
+            Our <span className="text-red-300">Story</span>
           </motion.h1>
           <motion.div
             variants={fadeInUp}
-            className="flex items-center text-sm tracking-widest text-blue-200"
+            className="flex items-center text-sm tracking-widest text-red-200"
           >
-            <span className="hover:text-blue-300 transition-colors cursor-pointer">HOME</span>
+            <span className="hover:text-red-300 transition-colors cursor-pointer">HOME</span>
             <span className="mx-3">❯</span>
-            <span className="hover:text-blue-300 transition-colors cursor-pointer">PAGES</span>
+            <span className="hover:text-red-300 transition-colors cursor-pointer">PAGES</span>
             <span className="mx-3">❯</span>
-            <span className="text-blue-300">ABOUT</span>
+            <span className="text-red-300">ABOUT</span>
           </motion.div>
         </motion.div>
       </section>
@@ -157,13 +157,13 @@ const About = () => {
           {/* LEFT CONTENT */}
           <div>
             <motion.div variants={staggerItem} className="mb-4">
-              <span className="inline-block px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-semibold tracking-wider border border-blue-100">
+              <span className="inline-block px-4 py-2 bg-red-50 text-red-700 rounded-full text-sm font-semibold tracking-wider border border-red-100">
                 ABOUT COMPANY
               </span>
             </motion.div>
 
-            <motion.h2 variants={staggerItem} className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Crafting Excellence in <span className="text-blue-700 relative">
+            <motion.h2 variants={staggerItem} className="text-3xl md:text-4xl lg:text-5xl font-bold text-red-900 mb-6 leading-tight">
+              Crafting Excellence in <span className="text-blue-600 relative">
                 PVC Laminates
                 <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500/30"></span>
               </span>
@@ -184,10 +184,10 @@ const About = () => {
 
             <motion.div 
               variants={fadeInLeft}
-              className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-white rounded-xl border-l-4 border-blue-500 shadow-sm"
+              className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-white rounded-xl border-l-4 border-red-500 shadow-sm"
             >
-              <h3 className="text-xl font-bold text-blue-700 mb-2 flex items-center">
-                <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+              <h3 className="text-xl font-bold text-red-700 mb-2 flex items-center">
+                <span className="w-2 h-2 bg-red-500 rounded-full mr-3"></span>
                 Why Choose RoutEX?
               </h3>
               <p className="text-gray-700">
@@ -229,7 +229,7 @@ const About = () => {
           {/* LEFT LIST */}
           <div className="lg:col-span-2">
             <motion.div variants={staggerItem} className="mb-8">
-              <span className="text-sm font-semibold tracking-wider text-blue-700">
+              <span className="text-sm font-semibold tracking-wider text-red-700">
                 TECHNICAL SPECIFICATIONS
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
@@ -271,20 +271,20 @@ const About = () => {
             <motion.div 
               whileHover={{ y: -10 }}
               transition={{ duration: 0.3 }}
-              className="bg-gradient-to-br from-blue-800 to-blue-900 rounded-2xl p-8 text-white shadow-xl overflow-hidden"
+              className="bg-gradient-to-br from-red-800 to-red-900 rounded-2xl p-8 text-white shadow-xl overflow-hidden"
             >
               {/* Background pattern */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/20 rounded-full -translate-y-16 translate-x-16"></div>
-              <div className="absolute bottom-0 left-0 w-24 h-24 bg-blue-600/20 rounded-full translate-y-12 -translate-x-12"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/20 rounded-full -translate-y-16 translate-x-16"></div>
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-red-600/20 rounded-full translate-y-12 -translate-x-12"></div>
               
               <div className="relative z-10">
                 <div className="mb-6">
                   <h3 className="text-2xl font-bold mb-3">
                     Important
                     <br />
-                    <span className="text-blue-300">Installation Note</span>
+                    <span className="text-red-300">Installation Note</span>
                   </h3>
-                  <p className="text-blue-200">
+                  <p className="text-red-200">
                     Kindly remove the protective film within 7 days of installation for best results
                   </p>
                 </div>
@@ -299,15 +299,15 @@ const About = () => {
                       transition={{ delay: i * 0.1 }}
                       className="aspect-square bg-blue-600/30 rounded-lg flex items-center justify-center"
                     >
-                      <span className="text-blue-300 text-xl">✓</span>
+                      <span className="text-red-300 text-xl">✓</span>
                     </motion.div>
                   ))}
                 </div>
 
-                <div className="pt-6 border-t border-blue-700">
-                  <p className="text-sm text-blue-300">Trusted Experience</p>
-                  <p className="text-3xl font-bold text-blue-300 mt-1">30+ Years</p>
-                  <p className="text-xs text-blue-400 mt-2">of manufacturing excellence</p>
+                <div className="pt-6 border-t border-red-700">
+                  <p className="text-sm text-red-300">Trusted Experience</p>
+                  <p className="text-3xl font-bold text-red-300 mt-1">30+ Years</p>
+                  <p className="text-xs text-red-400 mt-2">of manufacturing excellence</p>
                 </div>
               </div>
             </motion.div>
@@ -327,7 +327,7 @@ const About = () => {
             WHY CHOOSE ROUTEX
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3">
-            Unmatched <span className="text-blue-700">Quality Standards</span>
+            Unmatched <span className="text-red-700">Quality Standards</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto mt-4">
             Our commitment to excellence ensures every product meets the highest standards of quality and design.
@@ -388,10 +388,10 @@ const About = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-8 border-t border-blue-100"
         >
           {[
-            { value: "30+", label: "Years Experience", color: "text-blue-700" },
-            { value: "1000+", label: "Projects Completed", color: "text-blue-600" },
-            { value: "50+", label: "Design Variants", color: "text-blue-700" },
-            { value: "24/7", label: "Support", color: "text-blue-600" }
+            { value: "30+", label: "Years Experience", color: "text-red-700" },
+            { value: "1000+", label: "Projects Completed", color: "text-red-600" },
+            { value: "50+", label: "Design Variants", color: "text-red-700" },
+            { value: "24/7", label: "Support", color: "text-red-600" }
           ].map((stat, index) => (
             <motion.div
               key={index}

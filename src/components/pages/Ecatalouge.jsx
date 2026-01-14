@@ -87,6 +87,7 @@ const Ecatalogue = () => {
           <span className="mx-2">❯</span>
           <span className="text-blue-600 font-semibold">E-CATALOGUE</span>
         </div>
+        
 
         {/* Hero Section */}
         <motion.div
