@@ -269,7 +269,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-white font-medium">Phone</p>
-                    <p className="text-gray-400">+91 81010 06043</p>
+                    <p className="text-gray-400">90485300007</p>
                   </div>
                 </li>
                 <li className="flex items-start space-x-4">
@@ -278,7 +278,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-white font-medium">Email</p>
-                    <p className="text-gray-400">info@mozaclam.com</p>
+                    <p className="text-gray-400">hello.routex@gmail.com</p>
                   </div>
                 </li>
                 <li className="flex items-start space-x-4">
@@ -288,8 +288,8 @@ const Contact = () => {
                   <div>
                     <p className="text-white font-medium">Address</p>
                     <p className="text-gray-400 leading-relaxed">
-                      Plot No. 136, Sector-1 Extension,<br />
-                      Greater Noida, Uttar Pradesh – 201308
+                      PATTARNADAKKAVU, SAPPUMPADI<br />
+                      (PO. ANANTHAVOOR, 676301 )
                     </p>
                   </div>
                 </li>

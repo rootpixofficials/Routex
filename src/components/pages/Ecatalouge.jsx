@@ -325,15 +325,15 @@ const Ecatalogue = () => {
                 <ul className="space-y-4">
                   <li className="flex items-center">
                     <span className="mr-3">📞</span>
-                    +91 8010 8004 00
+                    90485300007
                   </li>
                   <li className="flex items-center">
                     <span className="mr-3">✉️</span>
-                    info@routex.com
+                    hello.routex@gmail.com
                   </li>
                   <li className="flex items-center">
                     <span className="mr-3">📍</span>
-                    Plot No. 136, Ecotech-1 Extension, Greater Noida, G.B. Nagar, Uttar Pradesh-201308
+                    PATTARNADAKKAVU, SAPPUMPADI (PO. ANANTHAVOOR, 676301 )
                   </li>
                 </ul>
                 <div className="mt-8">

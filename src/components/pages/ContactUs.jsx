@@ -44,20 +44,20 @@ const ContactUs = () => {
     {
       icon: <FaPhone className="text-red-600" />,
       title: "Phone Number",
-      content: "+91 8010 800 400",
+      content: "90485300007",
       description: "Call us for quick assistance"
     },
     {
       icon: <FaEnvelope className="text-red-600" />,
       title: "Email Address",
-      content: "info@routex.com",
+      content: "hello.routex@gmail.com",
       description: "Email us for detailed inquiries"
     },
     {
       icon: <FaMapMarkerAlt className="text-red-600" />,
       title: "Office Location",
-      content: "Plot No. 136, Ecotech-1 Extension",
-      description: "Greater Noida, G.B. Nagar, Uttar Pradesh – 201308"
+      content: "PATTARNADAKKAVU, SAPPUMPADI",
+      description: "(PO. ANANTHAVOOR, 676301 )"
     }
   ];
 
@@ -371,7 +371,7 @@ const ContactUs = () => {
             <iframe
               title="RoutEx Artistic PVC Laminates Location"
               className="w-full h-[500px]"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.257828661095!2d77.49579931507826!3d28.45381298249991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cea2b6c5bffff%3A0x5b8466aa81ea45a1!2sEcotech%201%20Extension%2C%20Greater%20Noida%2C%20Uttar%20Pradesh%20201308!5e0!3m2!1sen!2sin!4v1640777542457!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.1234567!2d76.0125!3d10.8715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7b137a66973b7%3A0x1e495ca7ab302172!2sDELIGHT%20ALUMINIUM%20CENTRE%20LLP!5e0!3m2!1sen!2sin!4v1640777542457!5m2!1sen!2sin"
               style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
